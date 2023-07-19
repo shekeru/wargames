@@ -4,61 +4,63 @@
 
 The goal of this level is for you to log into the game using SSH. The host to which you need to connect is bandit.labs.overthewire.org, on port 2220. The username is bandit0 and the password is bandit0. Once logged in, go to the Level 1 page to find out how to beat Level 1. The password for the next level is stored in a file called readme located in the home directory. Use this password to log into bandit1 using SSH. Whenever you find a password for a level, use SSH (on port 2220) to log into that level and continue the game.
 
+```sh
+cat readme
+```
+
 - Link: <https://overthewire.org/wargames/bandit/bandit1.html>
 - Connect: `ssh bandit0@bandit.labs.overthewire.org -p 2220`
 - Password: `bandit0`
 
-```sh
-cat readme
-```
 
 ## Level 1 -> 2
 
 The password for the next level is stored in a file called - located in the home directory
 
-- Link: <https://overthewire.org/wargames/bandit/bandit2.html>
-- Connect: `ssh bandit1@bandit.labs.overthewire.org -p 2220`
-- Password: `NH2SXQwcBdpmTEzi3bvBHMM9H66vVXjL`
-
 ```sh
 cat ./-
 ```
+
+- Link: <https://overthewire.org/wargames/bandit/bandit2.html>
+- Connect: `ssh bandit1@bandit.labs.overthewire.org -p 2220`
+- Password: `NH2SXQwcBdpmTEzi3bvBHMM9H66vVXjL`
 
 ## Level 2 -> 3
 
 The password for the next level is stored in a file called spaces in this filename located in the home directory
 
+```sh
+cat "spaces in this filename"
+```
+
 - Link: <https://overthewire.org/wargames/bandit/bandit3.html>
 - Connect: `ssh bandit2@bandit.labs.overthewire.org -p 2220`
 - Password: `rRGizSaX8Mk1RTb1CNQoXTcYZWU6lgzi`
 
-```sh
-cat "spaces in this filename"
-```
 
 ## Level 3 -> 4
 
 The password for the next level is stored in a hidden file in the inhere directory.
 
-- Link: <https://overthewire.org/wargames/bandit/bandit4.html>
-- Connect: `ssh bandit3@bandit.labs.overthewire.org -p 2220`
-- Password: `aBZ0W5EmUfAf7kHTQeOwd8bauFJ2lAiG`
-
 ```sh
 cat "cat -u inhere/.* 2>/dev/null"
 ```
+
+- Link: <https://overthewire.org/wargames/bandit/bandit4.html>
+- Connect: `ssh bandit3@bandit.labs.overthewire.org -p 2220`
+- Password: `aBZ0W5EmUfAf7kHTQeOwd8bauFJ2lAiG`
 
 ## Level 4 -> 5
 
 The password for the next level is stored in the only human-readable file in the inhere directory. Tip: if your terminal is messed up, try the “reset” command.
 
-- Link: <https://overthewire.org/wargames/bandit/bandit5.html>
-- Connect: `ssh bandit4@bandit.labs.overthewire.org -p 2220`
-- Password: `2EW7BBsr6aMMoJ2HjW067dm8EgX26xNe`
-
 ```sh
 grep -h "^[[:alnum:]]*$" -r inhere
 ```
+
+- Link: <https://overthewire.org/wargames/bandit/bandit5.html>
+- Connect: `ssh bandit4@bandit.labs.overthewire.org -p 2220`
+- Password: `2EW7BBsr6aMMoJ2HjW067dm8EgX26xNe`
 
 ## Level 5 -> 6
 
@@ -68,13 +70,13 @@ The password for the next level is stored in a file somewhere under the inhere d
 - 1033 bytes in size
 - not executable
 
-- Link: <https://overthewire.org/wargames/bandit/bandit6.html>
-- Connect: `ssh bandit5@bandit.labs.overthewire.org -p 2220`
-- Password: `lrIWWI6bB37kxfiCQZqUdOIYfr6eEeqR`
-
 ```sh
 cat $(find . -size 1033c ! -executable) | head -n 1
 ```
+
+- Link: <https://overthewire.org/wargames/bandit/bandit6.html>
+- Connect: `ssh bandit5@bandit.labs.overthewire.org -p 2220`
+- Password: `lrIWWI6bB37kxfiCQZqUdOIYfr6eEeqR`
 
 ## Level 6 -> 7
 
@@ -84,60 +86,37 @@ The password for the next level is stored somewhere on the server and has all of
 - owned by group bandit6
 - 33 bytes in size
 
-- Link: <https://overthewire.org/wargames/bandit/bandit7.html>
-- Connect: `ssh bandit6@bandit.labs.overthewire.org -p 2220`
-- Password: `P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU`
-
 ```sh
 cat $(find / -size 33c -group bandit6 -user bandit7 2>&-)
 ```
 
+- Link: <https://overthewire.org/wargames/bandit/bandit7.html>
+- Connect: `ssh bandit6@bandit.labs.overthewire.org -p 2220`
+- Password: `P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU`
+
 ## Level 7 -> 8
 
-The password for the next level is stored somewhere on the server and has all of the following properties:
+The password for the next level is stored in the file data.txt next to the word millionth
 
-- owned by user bandit7
-- owned by group bandit6
-- 33 bytes in size
+```sh
+sed -n 's/millionth\t//p' data.txt
+```
 
 - Link: <https://overthewire.org/wargames/bandit/bandit8.html>
 - Connect: `ssh bandit7@bandit.labs.overthewire.org -p 2220`
 - Password: `z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S`
 
+## Level 8 -> 9
+
 ```sh
-cat $(find / -size 33c -group bandit6 -user bandit7 2>&-)
+
 ```
 
+- Link: <https://overthewire.org/wargames/bandit/bandit9.html>
+- Connect: `ssh bandit8@bandit.labs.overthewire.org -p 2220`
+- Password: `TESKZC0XvTetK0S9xNwm25STk5iWrBvP`
+
 <!-- 
-ssh bandit2@bandit.labs.overthewire.org -p 2220
-pwd: CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9
-
-  Level 3
-Challenge: 
-
-ssh bandit3@bandit.labs.overthewire.org -p 2220
-pwd: UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK
-
-  Level 4
-Challenge: 
-
-ssh bandit4@bandit.labs.overthewire.org -p 2220
-pIwrPrtPN36QITSp3EQaw936yaFoFgAB
-
-  Level 5
-Challenge: 
-
-ssh bandit5@bandit.labs.overthewire.org -p 2220
-koReBOKuIDDepwhWk7jZC0RTdopnAYKh
-
-  Level 6
-Challenge: cat $(find / -size 33c -group bandit6 -user bandit7 2>&-)
-
-ssh bandit6@bandit.labs.overthewire.org -p 2220
-DXjZPULLxYr17uwoI01bNLQbtFemEgo7
-
-  Level 7
-Challenge: sed -n 's/millionth\t//p' data.txt
 
 ssh bandit7@bandit.labs.overthewire.org -p 2220
 HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs
